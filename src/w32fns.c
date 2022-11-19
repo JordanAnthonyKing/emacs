@@ -2426,10 +2426,10 @@ w32_createwindow (struct frame *f, int *coords)
 
       /* If we want a thin border, specify it here.  */
       if (FIXNUMP (border_width) && (XFIXNUM (border_width) > 0))
-	f->output_data.w32->dwStyle |= WS_BORDER;
+	f->output_data.w32->dwStyle |= (WS_BORDER | WS_THICKFRAME);
     }
   else {
-    f->output_data.w32->dwStyle = 0x160F0000;
+    f->output_data.w32->dwStyle = WS_OVERLAPPEDWINDOW;
   }
 
   /* Always clip children.  */
