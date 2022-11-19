@@ -2428,8 +2428,11 @@ w32_createwindow (struct frame *f, int *coords)
       if (FIXNUMP (border_width) && (XFIXNUM (border_width) > 0))
 	f->output_data.w32->dwStyle |= WS_BORDER;
     }
-  else
-    f->output_data.w32->dwStyle = (WS_OVERLAPPEDWINDOW ^ WS_BORDER);
+  else {
+    f->output_data.w32->dwStyle = (WS_THICKFRAME | WS_OVERLAPPED
+					| WS_MAXIMIZEBOX | WS_MINIMIZEBOX
+					| WS_SYSMENU);
+  }
 
   /* Always clip children.  */
   f->output_data.w32->dwStyle |= WS_CLIPCHILDREN;
