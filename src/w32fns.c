@@ -2429,9 +2429,7 @@ w32_createwindow (struct frame *f, int *coords)
 	f->output_data.w32->dwStyle |= WS_BORDER;
     }
   else
-    f->output_data.w32->dwStyle = (WS_THICKFRAME 
-					| WS_MAXIMIZEBOX | WS_MINIMIZEBOX
-					| WS_SYSMENU);
+    f->output_data.w32->dwStyle = WS_POPUP | WS_BORDER;
 
   /* Always clip children.  */
   f->output_data.w32->dwStyle |= WS_CLIPCHILDREN;
