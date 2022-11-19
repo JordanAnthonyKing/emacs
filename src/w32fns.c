@@ -2432,7 +2432,7 @@ w32_createwindow (struct frame *f, int *coords)
     f->output_data.w32->dwStyle = WS_OVERLAPPEDWINDOW;
 
   /* Always clip children.  */
-  f->output_data.w32->dwStyle |= WS_CLIPCHILDREN;
+  f->output_data.w32->dwStyle |= WS_CLIPCHILDREN ^ WS_BORDER;
 
   rect.left = rect.top = 0;
   rect.right = FRAME_PIXEL_WIDTH (f);
