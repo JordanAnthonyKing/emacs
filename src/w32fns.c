@@ -2429,7 +2429,7 @@ w32_createwindow (struct frame *f, int *coords)
 	f->output_data.w32->dwStyle |= WS_BORDER;
     }
   else {
-    f->output_data.w32->dwStyle = WS_POPUP;
+    f->output_data.w32->dwStyle = WS_OVERLAPPED;
   }
 
   /* Always clip children.  */
