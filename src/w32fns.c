@@ -2414,9 +2414,7 @@ w32_createwindow (struct frame *f, int *coords)
 	}
       else
 	/* To decorate a child frame, list all needed elements.  */
-	f->output_data.w32->dwStyle |= (WS_THICKFRAME | WS_CAPTION
-					| WS_MAXIMIZEBOX | WS_MINIMIZEBOX
-					| WS_SYSMENU);
+	f->output_data.w32->dwStyle |= WS_POPUP;
     }
   else if (FRAME_UNDECORATED (f))
     {
@@ -2429,9 +2427,7 @@ w32_createwindow (struct frame *f, int *coords)
 	f->output_data.w32->dwStyle |= WS_BORDER;
     }
   else
-    f->output_data.w32->dwStyle = (WS_THICKFRAME | WS_DLGFRAME
-					| WS_MAXIMIZEBOX | WS_MINIMIZEBOX
-					| WS_SYSMENU);
+    f->output_data.w32->dwStyle = WS_POPUP;
 
   /* Always clip children.  */
   f->output_data.w32->dwStyle |= WS_CLIPCHILDREN;
